@@ -9,15 +9,16 @@
     {
         <div class="form-group">
             <label>Позиция:</label>
-            @Html.DropDownListFor(x => x.Subjects, Model.DropDownList);
+            @Html.DropDownListFor(x => x.SubjectId, ViewBag.SelItems as SelectList);
         </div>
         <div class="form-group">
             <label>Количество:</label>
-            @Html.TextBoxFor(x => x.Quantity);
+
+            @Html.TextBoxFor(x=>x.Quantity)
         </div>
         <div class="form-group">
-            <lable>Комментарий:</lable>
-            @Html.TextBoxFor(x => x.Description);
+            <label>Комментарий:</label>
+            @Html.TextBoxFor(x=>x.Description);
         </div>
         <div class="text-center">
             <input class="btn btn-success" type="submit" value="Оставить заявку" />

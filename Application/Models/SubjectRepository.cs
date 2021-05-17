@@ -19,6 +19,7 @@ namespace Application.Models
             using (MyContext db = new MyContext())
             {
                 //заполнение
+                /*
                 List<Subject> fillSubj = new List<Subject>()
                 {
                     new Subject(){Name = "Стул"},
@@ -30,9 +31,13 @@ namespace Application.Models
                 };
                 db.Subjects.AddRange(fillSubj);
                 db.SaveChanges();
+                 */
                 subjects = db.Subjects.ToList();
             }
         }
-        public IEnumerable<Subject> GetSubjectsRepository() => subjects;
+        public IEnumerable<Subject> GetSubjectsRepository()
+        {
+            return subjects;
+        }
     }
 }

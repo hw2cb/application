@@ -9,16 +9,29 @@ namespace Application.Controllers
     public class SubjectController : Controller
     {
         SubjectRepository repositorySubj;
-        SubjectController()
+        public SubjectController()
         {
             repositorySubj = new SubjectRepository();
         }
 
-
         [HttpGet]
         public ActionResult Index()
         {
-            return View(repositorySubj.GetSubjectsRepository().FirstOrDefault());
+            List<SelectListItem> SelectItems = new List<SelectListItem>();
+            foreach(var subj in repositorySubj.GetSubjectsRepository())
+            {
+                var item = new SelectListItem(){Selected = true, Text = subj.Name, Value = Convert.ToString(subj.Id)};
+                SelectItems.Add(item);
+            }
+            var SelList = new SelectList(SelectItems, "Value", "Text");
+            ViewBag.SelItems = SelList;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index(Request request)
+        {
+
+            return View();
         }
     }
 }
