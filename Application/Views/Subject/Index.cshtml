@@ -1,0 +1,28 @@
+﻿@model Application.Models.Request
+@{
+    ViewBag.Title = "Подача заявки";
+}
+
+<h2>Подача заявки</h2>
+<div class="panel-body">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            <label>Позиция:</label>
+            @Html.DropDownListFor(x => x.Subjects, Model.DropDownList);
+        </div>
+        <div class="form-group">
+            <label>Количество:</label>
+            @Html.TextBoxFor(x => x.Quantity);
+        </div>
+        <div class="form-group">
+            <lable>Комментарий:</lable>
+            @Html.TextBoxFor(x => x.Description);
+        </div>
+        <div class="text-center">
+            <input class="btn btn-success" type="submit" value="Оставить заявку" />
+        </div>
+    }
+</div>    
+
+
