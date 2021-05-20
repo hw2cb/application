@@ -105,6 +105,11 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -112,17 +117,52 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105171839259_AddRequest.cs" />
-    <Compile Include="Migrations\202105171839259_AddRequest.designer.cs">
-      <DependentUpon>202105171839259_AddRequest.cs</DependentUpon>
+    <Compile Include="Migrations\202105190857073_Initial.cs" />
+    <Compile Include="Migrations\202105190857073_Initial.designer.cs">
+      <DependentUpon>202105190857073_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105190920543_Test.cs" />
+    <Compile Include="Migrations\202105190920543_Test.designer.cs">
+      <DependentUpon>202105190920543_Test.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191018528_Migr1.cs" />
+    <Compile Include="Migrations\202105191018528_Migr1.designer.cs">
+      <DependentUpon>202105191018528_Migr1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191038098_NewwArchitectureBd.cs" />
+    <Compile Include="Migrations\202105191038098_NewwArchitectureBd.designer.cs">
+      <DependentUpon>202105191038098_NewwArchitectureBd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191041287_NewwArchitectureBd2.cs" />
+    <Compile Include="Migrations\202105191041287_NewwArchitectureBd2.designer.cs">
+      <DependentUpon>202105191041287_NewwArchitectureBd2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191050068_NewwArchitectureBd3.cs" />
+    <Compile Include="Migrations\202105191050068_NewwArchitectureBd3.designer.cs">
+      <DependentUpon>202105191050068_NewwArchitectureBd3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191123598_NewwArchitectureBd4.cs" />
+    <Compile Include="Migrations\202105191123598_NewwArchitectureBd4.designer.cs">
+      <DependentUpon>202105191123598_NewwArchitectureBd4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191216331_NewwArchitectureBd5.cs" />
+    <Compile Include="Migrations\202105191216331_NewwArchitectureBd5.designer.cs">
+      <DependentUpon>202105191216331_NewwArchitectureBd5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105191503392_NewwArchitectureBd6.cs" />
+    <Compile Include="Migrations\202105191503392_NewwArchitectureBd6.designer.cs">
+      <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\RequestRepository.cs" />
+    <Compile Include="Models\RequestSubject.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,6 +177,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Request\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -148,8 +189,32 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105171839259_AddRequest.resx">
-      <DependentUpon>202105171839259_AddRequest.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105190857073_Initial.resx">
+      <DependentUpon>202105190857073_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105190920543_Test.resx">
+      <DependentUpon>202105190920543_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191018528_Migr1.resx">
+      <DependentUpon>202105191018528_Migr1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191038098_NewwArchitectureBd.resx">
+      <DependentUpon>202105191038098_NewwArchitectureBd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191041287_NewwArchitectureBd2.resx">
+      <DependentUpon>202105191041287_NewwArchitectureBd2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191050068_NewwArchitectureBd3.resx">
+      <DependentUpon>202105191050068_NewwArchitectureBd3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191123598_NewwArchitectureBd4.resx">
+      <DependentUpon>202105191123598_NewwArchitectureBd4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191216331_NewwArchitectureBd5.resx">
+      <DependentUpon>202105191216331_NewwArchitectureBd5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105191503392_NewwArchitectureBd6.resx">
+      <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

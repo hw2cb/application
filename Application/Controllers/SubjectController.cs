@@ -17,21 +17,41 @@ namespace Application.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            List<SelectListItem> SelectItems = new List<SelectListItem>();
-            foreach(var subj in repositorySubj.GetSubjectsRepository())
-            {
-                var item = new SelectListItem(){Selected = true, Text = subj.Name, Value = Convert.ToString(subj.Id)};
-                SelectItems.Add(item);
-            }
-            var SelList = new SelectList(SelectItems, "Value", "Text");
-            ViewBag.SelItems = SelList;
-            return View();
+            ViewBag.SelItems = GetSelectItems();
+            return View(new Request());
         }
         [HttpPost]
         public ActionResult Index(Request request)
         {
+            if(ModelState.IsValid)
+            {
+                ViewBag.SelItems = GetSelectItems();
+                using(MyContext db = new MyContext())
+                {
+                    request.Date = DateTime.Now;
+                    RequestSubject req = new RequestSubject() { Request = request, Subject = repositorySubj.GetSubjectsRepository().FirstOrDefault(p => p.Id == request.SubjId)};
+                    db.Requests.Add(request);
+                    db.RequestSubjects.Add(req);
+                    db.SaveChanges();
+                }
+            }
+            return View(request);
+        }
+        public ActionResult AddPosition(Request request)
+        {
 
-            return View();
+            ViewBag.SelItems = GetSelectItems();
+            return View("Index", new Request() { Count = request.Count+1});
+        }
+        public SelectList GetSelectItems()
+        {
+            List<SelectListItem> SelectItems = new List<SelectListItem>();
+            foreach (var subj in repositorySubj.GetSubjectsRepository())
+            {
+                var item = new SelectListItem() { Selected = true, Text = subj.Name, Value = Convert.ToString(subj.Id) };
+                SelectItems.Add(item);
+            }
+            return new SelectList(SelectItems, "Value", "Text");
         }
     }
 }

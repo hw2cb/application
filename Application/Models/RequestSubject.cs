@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Mvc;
 
 namespace Application.Models
 {
-    public class Subject
+    public class RequestSubject
     {
         public int Id { get; set; }
-        public List<RequestSubject> RequestSubject { get; set; }
-        public string Name { get; set; }
+        public Request Request { get; set; }
+        public Subject Subject { get; set; }
     }
 }

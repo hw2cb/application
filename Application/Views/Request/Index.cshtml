@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Application.Models.RequestSubject>
+    @{
+        ViewBag.Title = "Index";
+    }
+
+    <h2>Заявки:</h2>
+
+    @foreach (var m in Model)
+    {
+        <div>Заявка:</div>
+        <div>@m.Request.Id</div>
+        <div>@m.Request.Date</div>
+        <div>Кол-во: @m.Request.Quantity</div>
+        <div>Комментарий: @m.Request.Description</div>
+        <div>Предмет:@m.Subject.Name</div>
+    }
