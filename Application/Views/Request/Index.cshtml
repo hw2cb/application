@@ -7,14 +7,22 @@
 
     @foreach (var m in Model)
     {
-        <div>Заявка:</div>
-        <div>@m.Id</div>
-        <div>@m.Date</div>
-        foreach(var i in m.Items)
-        {
-            <div>@i.Subject.Name</div>
-            <div>Кол-во: @i.Quantity</div>
-            <div>Комментарий: @i.Description</div>
-        }
-        
+        <div class="panel-group">
+            <div class="panel panel-info">
+                <div class="panel-heading">Заявка номер: @m.Id</div>
+                <div class="panel-body">Дата создания заявки: @m.Date</div>
+                <div class="panel-body">Позиции, указанные в заявке:</div>
+                @foreach (var i in m.Items)
+                {
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">@i.Subject.Name</div>
+                            <div class="panel-body">Кол-во: @i.Quantity</div>
+                            <div class="panel-body">Комментарий: @i.Description</div>
+                        </div>
+                    </div>
+                    
+                }
+            </div>
+        </div>
     }
