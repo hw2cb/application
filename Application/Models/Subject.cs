@@ -9,7 +9,6 @@ namespace Application.Models
     public class Subject
     {
         public int Id { get; set; }
-        public List<RequestSubject> RequestSubject { get; set; }
         public string Name { get; set; }
     }
 }

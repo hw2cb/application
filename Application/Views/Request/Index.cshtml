@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Application.Models.RequestSubject>
+﻿@model IEnumerable<Application.Models.Request>
     @{
         ViewBag.Title = "Index";
     }
@@ -8,9 +8,13 @@
     @foreach (var m in Model)
     {
         <div>Заявка:</div>
-        <div>@m.Request.Id</div>
-        <div>@m.Request.Date</div>
-        <div>Кол-во: @m.Request.Quantity</div>
-        <div>Комментарий: @m.Request.Description</div>
-        <div>Предмет:@m.Subject.Name</div>
+        <div>@m.Id</div>
+        <div>@m.Date</div>
+        foreach(var i in m.Items)
+        {
+            <div>@i.Subject.Name</div>
+            <div>Кол-во: @i.Quantity</div>
+            <div>Комментарий: @i.Description</div>
+        }
+        
     }

@@ -117,8 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RequestController.cs" />
-    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -158,11 +158,20 @@
     <Compile Include="Migrations\202105191503392_NewwArchitectureBd6.designer.cs">
       <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105211444213_NewArchBd.cs" />
+    <Compile Include="Migrations\202105211444213_NewArchBd.designer.cs">
+      <DependentUpon>202105211444213_NewArchBd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105211810528_NewArchBdTest.cs" />
+    <Compile Include="Migrations\202105211810528_NewArchBdTest.designer.cs">
+      <DependentUpon>202105211810528_NewArchBdTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemsRepository.cs" />
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\RequestRepository.cs" />
-    <Compile Include="Models\RequestSubject.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\SubjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,9 +184,10 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Subject\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Request\Index.cshtml" />
+    <Content Include="Views\_RequestPartial.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -215,6 +225,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202105191503392_NewwArchitectureBd6.resx">
       <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105211444213_NewArchBd.resx">
+      <DependentUpon>202105211444213_NewArchBd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105211810528_NewArchBdTest.resx">
+      <DependentUpon>202105211810528_NewArchBdTest.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
