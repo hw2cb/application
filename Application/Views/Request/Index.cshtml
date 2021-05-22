@@ -4,24 +4,19 @@
     }
 
     <h2>Заявки:</h2>
-
+<div class="btn btn-info">@Html.ActionLink("Вернуться к созданию заявки", "../Home/Index")</div>
     @foreach (var m in Model)
     {
         <div class="panel-group">
             <div class="panel panel-info">
                 <div class="panel-heading">Заявка номер: @m.Id</div>
                 <div class="panel-body">Дата создания заявки: @m.Date</div>
-                <div class="panel-body">Позиции, указанные в заявке:</div>
-                @foreach (var i in m.Items)
+                @using (@Html.BeginForm("ViewRequest", "Request", FormMethod.Post))
                 {
-                    <div class="panel-body">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">@i.Subject.Name</div>
-                            <div class="panel-body">Кол-во: @i.Quantity</div>
-                            <div class="panel-body">Комментарий: @i.Description</div>
-                        </div>
+                    @Html.Hidden("requestId", m.Id)
+                    <div class="text-center">
+                        <input class="btn btn-info" type="submit" value="Просмотреть заявку" />
                     </div>
-                    
                 }
             </div>
         </div>

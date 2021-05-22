@@ -1,34 +1,127 @@
-﻿@model Application.Models.Item
+﻿@model List<Application.Models.Item>
 
-@{
-    ViewBag.Title = "Index";
-}
+    @{
+        ViewBag.Title = "Index";
+    }
+    <h2>Создание заявки</h2>
+    @using (@Html.BeginForm())
+    {
+        <div id="container" class="panel-group">
+                <div id="panel-0" class="panel panel-info">
+                    <div class="panel-heading">Позиция:</div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label>Список:</label>
+                            @Html.DropDownListFor(x => x[0].SubjectId, ViewBag.SelItems as SelectList, new { id = "dropdownlist"})
+                        </div>
+                        <div class="form-group">
+                            <label>Количество:</label>
 
-<h2>Создание заявки</h2>
-@using(@Html.BeginForm())
-{
-    <div class="panel-group">
-        <div class="panel panel-info">
-            <div class="panel-heading"><h3>Позиция:</h3></div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <label>Список:</label>
-                    @Html.DropDownList("idSubject", ViewBag.SelItems as SelectList)
+                            @Html.TextBoxFor(x => x[0].Quantity, new { id = "quantity-textbox" })
+                        </div>
+                        <div class="form-group">
+                            <label>Комментарий:</label>
+                            @Html.TextBoxFor(x => x[0].Description, new { id = "description-textbox" })
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Количество:</label>
-
-                    @Html.TextBoxFor(x => x.Quantity)
-                </div>
-                <div class="form-group">
-                    <label>Комментарий:</label>
-                    @Html.TextBoxFor(x => x.Description)
-                </div>
-            </div>
         </div>
-    </div>
-    <div class="text-center">
+        <div class="text-center">
             <input class="btn btn-info" type="submit" value="Оставить заявку" />
-    </div>
-}
+        </div>
+    }
+               <div class="text-center">
+                   <input id="button-add" onclick="AddNewPosition()" class="btn btn-info" type="submit" value="Добавить еще одну позицию" />
+               </div>
+               <div class="btn btn-info">@Html.ActionLink("Просмотреть существующие заявки", "../Request/Index")</div>
+   <script type="text/javascript" language="javascript">
+       var count = 1
+       function AddNewPosition()
+       {
+           //var p = document.getElementById("panel-0");
+           //var z = document.getElementById("container");
+           //var clone = p.cloneNode(true);
+           //z.appendChild(clone);
+
+           //по кнопке добавить новую позицию генерирую формы
+           //panel-info
+           var panelInfo = document.createElement("div");
+           panelInfo.id = "panel-"+count;
+           panelInfo.className = "panel panel-info";
+           p = document.getElementById("container");
+           p.insertBefore(panelInfo, p.lastChild);
+
+           //panel-body
+           var panelBody = document.createElement("div");
+           panelBody.id = "panel-body-" + count;
+           panelBody.className = "panel-body";
+           z = document.getElementById("panel-" + count);
+           z.insertBefore(panelBody, z.lastChild);
+
+           //panel-heading
+           var panelHeading = document.createElement("div");
+           panelHeading.className = "panel-heading";
+           c = document.getElementById("panel-"+count);
+           c.insertBefore(panelHeading, c.firstChild);
+           panelHeading.innerHTML = "Позиция:";
+
+
+           //forms - textbox, description
+           var formGroup = document.createElement("div");
+           formGroup.id = "form-group-" + count; 
+           formGroup.className = "form-group";
+           x = document.getElementById("panel-body-" + count);
+           x.insertBefore(formGroup, x.lastChild);
+           //label
+           var label = document.createElement("label");
+           y = document.getElementById("form-group-" + count);
+           y.insertBefore(label, y.lastChild);
+           label.innerHTML = "Комментарий:";
+           //textbox
+           var p = document.getElementById("description-textbox");
+           var clone = p.cloneNode(true);
+           y.appendChild(clone);
+           p.name = "[" + count + "].Description";
+
+           //forms - dropdownlist:
+           //form-group
+           var formGroup = document.createElement("div");
+           formGroup.id = "form-group-" + count + 2;
+           formGroup.className = "form-group";
+           x = document.getElementById("panel-body-" + count);
+           x.insertBefore(formGroup, x.lastChild);
+           //label
+           var label = document.createElement("label");
+           y = document.getElementById("form-group-" + count + 2);
+           y.insertBefore(label, y.lastChild);
+           label.innerHTML = "Список:";
+           //dropdownlist
+           var p = document.getElementById("dropdownlist");
+           var clone = p.cloneNode(true);
+           y.appendChild(clone);
+           p.name = "[" + count + "].SubjectId";
+
+
+           //forms - textbox, quantity
+           var formGroup = document.createElement("div");
+           formGroup.id = "form-group-" + count + 1; //делаю +1 тк такой id уже существует
+           formGroup.className = "form-group";
+           x = document.getElementById("panel-body-" + count);
+           x.insertBefore(formGroup, x.lastChild);
+           //label
+           var label = document.createElement("label");
+           y = document.getElementById("form-group-" + count + 1);
+           y.insertBefore(label, y.lastChild);
+           label.innerHTML = "Количество:";
+           //textbox
+           var p = document.getElementById("quantity-textbox");
+           var clone = p.cloneNode(true);
+           y.appendChild(clone);
+           p.name = "[" + count + "].Quantity";
+
+           
+
+           count++;
+       }
+   </script>
 
