@@ -1,0 +1,23 @@
+﻿@model Application.Models.Request
+@{
+    ViewBag.Title = "ViewRequest";
+}
+
+<h2>Просмотр заявки</h2>
+<div class="panel-group">
+    <div class="panel panel-info">
+        <div class="panel-heading">Заявка номер: @Model.Id</div>
+        <div class="panel-body">Дата создания заявки: @Model.Date</div>
+        <div class="panel-body">
+            @foreach (var i in Model.Items)
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">@i.Subject.Name</div>
+                    <div class="panel-body">Кол-во: @i.Quantity</div>
+                    <div class="panel-body">Комментарий: @i.Description</div>
+                </div>
+            }
+            </div>
+        </div>
+    </div>
+<div class="btn btn-info">@Html.ActionLink("Вернуться к просмотру заявок", "../Request/Index")</div>
