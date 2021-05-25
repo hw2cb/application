@@ -1,13 +1,14 @@
 ﻿@model List<Application.Models.Item>
 
     @{
-        ViewBag.Title = "Index";
+        ViewBag.Title = "Создание заявки";
     }
     <h2>Создание заявки</h2>
     @using (@Html.BeginForm())
     {
+        @Html.ValidationSummary()
         <div id="container" class="panel-group">
-                <div id="panel-0" class="panel panel-info">
+                <div id="panel-0" class="panel panel-info" style="margin-top:25px;">
                     <div class="panel-heading">Позиция:</div>
                     <div class="panel-body">
                         <div class="form-group">
@@ -26,16 +27,29 @@
                     </div>
                 </div>
         </div>
-        <div class="text-center">
-            <input class="btn btn-info" type="submit" value="Оставить заявку" />
+        <div class="text-center" style="margin-top:50px;">
+            <input class="btn btn-info" type="submit" value="Отправить заявку" />
         </div>
     }
-               <div class="text-center">
+               <div class="text-center" style="margin-top:25px;">
                    <input id="button-add" onclick="AddNewPosition()" class="btn btn-info" type="submit" value="Добавить еще одну позицию" />
+               </div>
+               <div class="text-center" style="margin-top:25px;">
+                   <input id="button-add" onclick="RemovePosition()" class="btn btn-info" type="submit" value="Удалить одну позицию" />
                </div>
                <div class="btn btn-info">@Html.ActionLink("Просмотреть существующие заявки", "../Request/Index")</div>
    <script type="text/javascript" language="javascript">
        var count = 1;
+
+       function RemovePosition()
+       {
+           if (count != 1)
+           {
+               count = Number(count);
+               count = count - 1;
+               document.getElementById("panel-" + count).remove();
+           }
+       }
        function AddNewPosition()
        {
            //var p = document.getElementById("panel-0");

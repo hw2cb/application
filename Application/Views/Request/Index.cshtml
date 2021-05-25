@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<Application.Models.Request>
     @{
-        ViewBag.Title = "Index";
+        ViewBag.Title = "Заявки";
     }
 
-    <h2>Заявки:</h2>
+    <h2>Созданные заявки:</h2>
 <div class="btn btn-info">@Html.ActionLink("Вернуться к созданию заявки", "../Home/Index")</div>
 <div class="btn btn-info">@Html.ActionLink("Составить отчет", "../Request/Report")</div>
     @foreach (var m in Model)
     {
-        <div class="panel-group">
+        <div class="panel-group" style="margin-top:25px;">
             <div class="panel panel-info">
                 <div class="panel-heading">Заявка номер: @m.Id</div>
                 <div class="panel-body">Дата создания заявки: @m.Date</div>
@@ -16,7 +16,7 @@
                 {
                     @Html.Hidden("requestId", m.Id)
                     <div class="text-center">
-                        <input class="btn btn-info" type="submit" value="Просмотреть заявку" />
+                        <input class="btn btn-info" type="submit" value="Просмотреть заявку" style="margin-bottom:20px;" />
                     </div>
                 }
             </div>

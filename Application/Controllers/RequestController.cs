@@ -43,8 +43,20 @@ namespace Application.Controllers
                 repItem.AddRange(i.Items);
             }
             List<Item> items = new List<Item>();
-            for(int i=0; i<repItem.Count; i++)
+            List<Subject> subjects = subjectsRepo.GetSubjectsRepository();
+            for (int i = 0; i < subjectsRepo.GetSubjectsRepository().Count; i++)
             {
+                items.Add(new Item() { Subject = subjects[i] , Quantity = 0});
+            }
+            for (int k = 0; k < items.Count; k++)
+            {
+                for (int c = 0; c < repItem.Count; c++)
+                {
+                    if (items[k].Subject.Name == repItem[c].Subject.Name)
+                    {
+                        items[k].Quantity = items[k].Quantity + repItem[c].Quantity;
+                    }
+                }
             }
             Report report = new Report() { Subjects = items, Date = new DateTime(year, month, DateTime.Now.Day)};
             //report.Date = new DateTime(year, month, DateTime.Now.Day);
@@ -59,7 +71,7 @@ namespace Application.Controllers
         public SelectList GetSelectItems()
         {
             List<SelectListItem> SelectItems = new List<SelectListItem>();
-            for (int i = 0; i < 12;i++ )
+            for (int i = 1; i < 12;i++ )
             {
                 var item = new SelectListItem() { Selected = true, Text = Convert.ToString(i), Value = Convert.ToString(i) };
                 SelectItems.Add(item);

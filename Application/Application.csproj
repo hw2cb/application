@@ -171,7 +171,6 @@
     <Compile Include="Models\ItemsRepository.cs" />
     <Compile Include="Models\MyContext.cs" />
     <Compile Include="Models\Report.cs" />
-    <Compile Include="Models\ReportSubject.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\RequestRepository.cs" />
     <Compile Include="Models\Subject.cs" />
@@ -188,10 +187,10 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Request\Index.cshtml" />
-    <Content Include="Views\Home\_RequestPartial.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Request\ViewRequest.cshtml" />
     <Content Include="Views\Request\Report.cshtml" />
+    <Content Include="Views\Home\Created.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
