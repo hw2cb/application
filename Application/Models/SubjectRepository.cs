@@ -18,20 +18,20 @@ namespace Application.Models
         {
             using (MyContext db = new MyContext())
             {
-                //заполнение
-                /*
-                List<Subject> fillSubj = new List<Subject>()
+                //заполнение предметов
+                if(db.Subjects.ToList().Count == 0)
                 {
-                    new Subject(){Name = "Стул"},
-                    new Subject(){Name = "Стол"},
-                    new Subject(){Name = "Калькулятор"},
-                    new Subject(){Name = "Ведро"},
-                    new Subject(){Name = "Веник"}
-
-                };
-                db.Subjects.AddRange(fillSubj);
-                db.SaveChanges();
-                 */
+                    List<Subject> fillSubj = new List<Subject>()
+                    {
+                        new Subject(){Name = "Стул"},
+                        new Subject(){Name = "Стол"},
+                        new Subject(){Name = "Калькулятор"},
+                        new Subject(){Name = "Ведро"},
+                        new Subject(){Name = "Веник"}
+                    };
+                    db.Subjects.AddRange(fillSubj);
+                    db.SaveChanges();
+                }
                 subjects = db.Subjects.ToList();
             }
         }
