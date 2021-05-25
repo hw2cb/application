@@ -24,9 +24,9 @@ namespace Application.Controllers
         [HttpPost]
         public ActionResult Index(List<Item> items)
         {
+            ViewBag.SelItems = GetSelectItems();
             if(ModelState.IsValid)
             {
-                ViewBag.SelItems = GetSelectItems();
                 using(MyContext db = new MyContext())
                 {
                     Request request = new Request() {Items = items, Date = DateTime.Now };

@@ -6,7 +6,7 @@
     <h2>Создание заявки</h2>
     @using (@Html.BeginForm())
     {
-        @Html.ValidationSummary()
+        @Html.ValidationSummary(false)
         <div id="container" class="panel-group">
                 <div id="panel-0" class="panel panel-info" style="margin-top:25px;">
                     <div class="panel-heading">Позиция:</div>
@@ -22,7 +22,7 @@
                         </div>
                         <div class="form-group">
                             <label>Комментарий:</label>
-                            @Html.TextBoxFor(x => x[0].Description, new { id = "description-textbox" })
+                            @Html.TextAreaFor(x => x[0].Description, new { id = "description-textbox" })
                         </div>
                     </div>
                 </div>

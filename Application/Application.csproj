@@ -98,6 +98,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
@@ -122,51 +123,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105190857073_Initial.cs" />
-    <Compile Include="Migrations\202105190857073_Initial.designer.cs">
-      <DependentUpon>202105190857073_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105190920543_Test.cs" />
-    <Compile Include="Migrations\202105190920543_Test.designer.cs">
-      <DependentUpon>202105190920543_Test.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191018528_Migr1.cs" />
-    <Compile Include="Migrations\202105191018528_Migr1.designer.cs">
-      <DependentUpon>202105191018528_Migr1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191038098_NewwArchitectureBd.cs" />
-    <Compile Include="Migrations\202105191038098_NewwArchitectureBd.designer.cs">
-      <DependentUpon>202105191038098_NewwArchitectureBd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191041287_NewwArchitectureBd2.cs" />
-    <Compile Include="Migrations\202105191041287_NewwArchitectureBd2.designer.cs">
-      <DependentUpon>202105191041287_NewwArchitectureBd2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191050068_NewwArchitectureBd3.cs" />
-    <Compile Include="Migrations\202105191050068_NewwArchitectureBd3.designer.cs">
-      <DependentUpon>202105191050068_NewwArchitectureBd3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191123598_NewwArchitectureBd4.cs" />
-    <Compile Include="Migrations\202105191123598_NewwArchitectureBd4.designer.cs">
-      <DependentUpon>202105191123598_NewwArchitectureBd4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191216331_NewwArchitectureBd5.cs" />
-    <Compile Include="Migrations\202105191216331_NewwArchitectureBd5.designer.cs">
-      <DependentUpon>202105191216331_NewwArchitectureBd5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105191503392_NewwArchitectureBd6.cs" />
-    <Compile Include="Migrations\202105191503392_NewwArchitectureBd6.designer.cs">
-      <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105211444213_NewArchBd.cs" />
-    <Compile Include="Migrations\202105211444213_NewArchBd.designer.cs">
-      <DependentUpon>202105211444213_NewArchBd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202105211810528_NewArchBdTest.cs" />
-    <Compile Include="Migrations\202105211810528_NewArchBdTest.designer.cs">
-      <DependentUpon>202105211810528_NewArchBdTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemsRepository.cs" />
     <Compile Include="Models\MyContext.cs" />
@@ -200,41 +156,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105190857073_Initial.resx">
-      <DependentUpon>202105190857073_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105190920543_Test.resx">
-      <DependentUpon>202105190920543_Test.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191018528_Migr1.resx">
-      <DependentUpon>202105191018528_Migr1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191038098_NewwArchitectureBd.resx">
-      <DependentUpon>202105191038098_NewwArchitectureBd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191041287_NewwArchitectureBd2.resx">
-      <DependentUpon>202105191041287_NewwArchitectureBd2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191050068_NewwArchitectureBd3.resx">
-      <DependentUpon>202105191050068_NewwArchitectureBd3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191123598_NewwArchitectureBd4.resx">
-      <DependentUpon>202105191123598_NewwArchitectureBd4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191216331_NewwArchitectureBd5.resx">
-      <DependentUpon>202105191216331_NewwArchitectureBd5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105191503392_NewwArchitectureBd6.resx">
-      <DependentUpon>202105191503392_NewwArchitectureBd6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105211444213_NewArchBd.resx">
-      <DependentUpon>202105211444213_NewArchBd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105211810528_NewArchBdTest.resx">
-      <DependentUpon>202105211810528_NewArchBdTest.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
