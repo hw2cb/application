@@ -35,7 +35,7 @@ namespace Application.Models
                 subjects = db.Subjects.ToList();
             }
         }
-        public IEnumerable<Subject> GetSubjectsRepository()
+        public List<Subject> GetSubjectsRepository()
         {
             return subjects;
         }
